@@ -1,4 +1,145 @@
 ﻿body {
     margin: 0;
     padding: 0;
+    background-color:#e0f1e0;
+}
+
+#barra{
+    height:50px;
+    background-color: #2a712a;
+}
+
+#sesenta{
+    width:70%;
+    margin-left:15%;
+}
+
+#barra-logo{
+    width:10%;
+    height:100%;
+    /*background-color:red;*/
+    float:left;
+    text-align:center;
+}
+
+#barra-logo span{
+    width:24px;
+    height:24px;
+
+    background-image:url(../img/Iconos.png);
+    background-repeat:no-repeat;
+    background-position:0 -163px;
+    display:block;
+    outline:none;
+    overflow:hidden;
+    
+    margin: 13px auto;
+}
+
+#barra-search{
+    width:45%;
+    height:100%;
+    /*background-color:green;*/
+
+    float:left;
+}
+
+#barra-search form{
+    /*margin: 13px auto;*/
+    margin:13px auto;
+}
+
+#barra-search form Button1{
+    /*margin: 13px auto;*/
+    margin-left:100px;
+}
+
+#barra-perso{
+    width:15%;
+    height:100%;
+    /*background-color:greenyellow;*/
+
+    float:left;
+    
+    text-align: right;
+}
+
+#barra-perso p{
+    margin-top:13px;
+    padding-right:10px;
+}
+
+#barra-notis{
+    width:30%;
+    height:100%;
+    /*background-color:lightgreen;*/
+
+    float:left;
+    /*text-align:center;*/
+}
+
+#barra-notis p{
+    margin-top:13px;
+}
+
+#iconoAmigos{
+    width:24px;
+    height:24px;
+
+    background-image:url(../img/Iconos.png);
+    background-repeat:no-repeat;
+    background-position:0 -188px;
+    display:block;
+    outline:none;
+    overflow:hidden;
+    
+    float:left;
+}
+
+/*OTRA SHIT*/
+#caja{
+    /*margin-top:10px;*/
+    background-color:#e0f1e0;
+}
+
+#contenido{
+    width:70%;
+    background-color:white;
+    margin-left:15%;
+}
+
+#cont-top{
+    height:100px;
+    background-color:darkseagreen;
+}
+
+#cont-bottom{
+    background-color:#e0f1e0;
+}
+
+#izq{
+    width:30%;
+    float:left;
+
+    background-color:#e0f1e0;
+    padding:10px;
+}
+
+#der{
+    width:70%;
+    float:left;
+
+    background-color:#e0f1e0;
+}
+
+#tablaAmigos{
+    width:90%;
+    /*background-color:black;*/
+    text-align:center;
+    margin:0 auto;
+}
+
+#tablaAmigos td {
+    height:50px;
+    width:50px;
 }

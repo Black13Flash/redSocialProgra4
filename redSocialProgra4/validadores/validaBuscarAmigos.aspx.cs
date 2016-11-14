@@ -21,7 +21,7 @@ namespace redSocialProgra4.validadores
             {//buscar la lista porque si existe esa persona
                 Usuario u = new Usuario();
                 List<Usuario> lista = u.buscaTodosNombreApellido(aux[1], aux[2]);
-                if (lista==null)
+                if (lista == null)
                 {
                     Session["mensaje"] = "No hay coincidencia.";
                     Response.Redirect("../vistas/buscarAmigos.aspx");

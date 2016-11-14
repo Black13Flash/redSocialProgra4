@@ -71,6 +71,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="css\principal.css" />
+    <Content Include="img\Iconos.png" />
+    <Content Include="img\user.png" />
     <Content Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -91,7 +93,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="conex\Conexion.cs" />
+    <Compile Include="controladores\controladorAmigo.cs" />
     <Compile Include="controladores\controladorUsuario.cs" />
+    <Compile Include="modelos\Amigo.cs" />
     <Compile Include="modelos\Usuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="validadores\validaBuscarAmigos.aspx.cs">
@@ -144,9 +148,7 @@
       <DependentUpon>perfilPersona.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="img\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
