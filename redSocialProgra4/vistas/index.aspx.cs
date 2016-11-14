@@ -38,13 +38,16 @@ namespace redSocialProgra4.vistas
                 Response.Write("</div>");
                 Response.Write("<div id='barra-perso'>");
                 Response.Write("<!-- NOMBRE DEL PERSONAJE -->");
-                Response.Write("<p>"+nombre+" "+apellido+"</p>");
+                Response.Write("<p><a href='#'>"+nombre+" "+apellido+"</a></p>");
                 Response.Write("</div>");
                 Response.Write("<div id='barra-notis'>");
-                Response.Write("<a href='#'>Inicio</a>");
+                Response.Write("<div id='barra-notis-amistad'>");
                 Response.Write("<span id='iconoAmigos'></span>");
+                Response.Write("</div>");
+                Response.Write("<div id='barra-notis-notis'>");
                 Response.Write("<span id='iconoNotis'></span>");
-                Response.Write("<a href='#'>Salir</a>");
+                Response.Write("</div>");
+                Response.Write("<p><a href='#'>Salir</a></p>");
                 Response.Write("</div>");
                 Response.Write("</div>");
                 Response.Write("</div>");
@@ -52,24 +55,30 @@ namespace redSocialProgra4.vistas
                 Response.Write("<div id='caja'>");
                 Response.Write("<div id='contenido'>");
                 Response.Write("<div id='cont-top'>");
+                Response.Write("<div id='cont-top-left'>");
+                Response.Write("<img class='fotoPerfil' src='../img/user.png' />");
+                Response.Write("</div>");
+                Response.Write("<div id='cont-top-rigth'>");
+                Response.Write("<p>"+nombre+" "+apellido+"</p>");
+                Response.Write("</div>");
                 Response.Write("</div>");
                 Response.Write("<div id='cont-bottom'>");
                 //AMIGOS
                 controladorAmigo ca = new controladorAmigo();
-                List<Amigo> listaAmigos = ca.mostrarAmigos(correo);
+                List<Usuario> listaAmigos = ca.mostrarAmigos2(correo);
                 Response.Write("<div id='izq'>");
+                Response.Write("<p class='tit-amigo'>"+listaAmigos.Count+" Amigo(s)</p>");
                 if (listaAmigos != null)
                 {
                     Response.Write("<table id='tablaAmigos'>");
                     
 
-                    foreach (Amigo a in listaAmigos)
+                    foreach (Usuario a in listaAmigos)
                     {
                         //Response.Write(a.Usuario2);
                         Response.Write("<tr>");
-                        Response.Write("<td></td>");
-                        Response.Write("<td></td>");
-                        Response.Write("<td></td>");
+                        Response.Write("<td class='td-img'></td>");
+                        Response.Write("<td class='td-nom'><a href='#'>"+a.Nombre+" "+a.Apellido+"</a></td>");
                         Response.Write("</tr>");
                     }
 

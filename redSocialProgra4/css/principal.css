@@ -65,8 +65,8 @@
 }
 
 #barra-perso p{
-    margin-top:13px;
-    padding-right:10px;
+    margin-top:20px;
+    padding-right:25px;
 }
 
 #barra-notis{
@@ -79,7 +79,25 @@
 }
 
 #barra-notis p{
-    margin-top:13px;
+    margin-top:20px;
+}
+
+#barra-notis-amistad{
+    height:24px;
+    width:44px;
+
+    float:left;
+    margin:13px auto;
+    margin-left:10px;
+}
+
+#barra-notis-notis{
+    height:24px;
+    width:44px;
+
+    float:left;
+    margin:13px auto;
+    margin-left:10px;
 }
 
 #iconoAmigos{
@@ -89,6 +107,20 @@
     background-image:url(../img/Iconos.png);
     background-repeat:no-repeat;
     background-position:0 -188px;
+    display:block;
+    outline:none;
+    overflow:hidden;
+    
+    float:left;
+}
+
+#iconoNotis{
+    width:24px;
+    height:24px;
+
+    background-image:url(../img/Iconos.png);
+    background-repeat:no-repeat;
+    background-position:0 -238px;
     display:block;
     outline:none;
     overflow:hidden;
@@ -115,6 +147,7 @@
 
 #cont-bottom{
     background-color:#e0f1e0;
+    margin-top:20px;
 }
 
 #izq{
@@ -137,9 +170,55 @@
     /*background-color:black;*/
     text-align:center;
     margin:0 auto;
+    background-color: #ffffff;
+    border: 1px solid #2a712a;
+    padding: 10px;
 }
 
-#tablaAmigos td {
-    height:50px;
-    width:50px;
+
+
+.td-img{
+    height: 50px;
+    width: 50px;
+    background-color: white;
+    background-image:url(../img/user.png);
+    background-size:contain;
+    border-radius:25px;
+}
+
+.td-nom{
+    border-bottom: 1px solid darkseagreen;
+}
+
+
+#cont-top-left{
+    width:20%;
+    height:100%;
+    float:left;
+}
+
+#cont-top-rigth{
+    width:80%;
+    height:100%;
+    float:left;
+}
+
+.fotoPerfil{
+    width: 80px;
+    text-align: center;
+    padding-top: 10px;
+    padding-left: 25%;
+}
+
+#cont-top-rigth p{
+    color:white;
+    text-shadow: 1px 1px 1px black;
+    font-size:42px;
+}
+
+.tit-amigo{
+    text-align: center;
+    background-color: #8fbc8f;
+    padding: 10px;
+    border-bottom: 2px solid #2a712a;
 }
