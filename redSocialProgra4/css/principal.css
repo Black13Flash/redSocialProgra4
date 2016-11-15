@@ -7,6 +7,9 @@
 #barra{
     height:50px;
     background-color: #2a712a;
+
+    position: fixed;
+    width: 100%;
 }
 
 #sesenta{
@@ -143,6 +146,7 @@
 #cont-top{
     height:100px;
     background-color:darkseagreen;
+    padding-top: 50px;
 }
 
 #cont-bottom{
@@ -155,7 +159,7 @@
     float:left;
 
     background-color:#e0f1e0;
-    padding:10px;
+    /*padding:10px;*/
 }
 
 #der{
@@ -221,4 +225,29 @@
     background-color: #8fbc8f;
     padding: 10px;
     border-bottom: 2px solid #2a712a;
+}
+
+#mi-post{
+    width:100%;
+    height:200px;
+    background-color:red;
+}
+
+#post-principal{
+    background-color:#e0f1e0;
+    padding: 30px;
+    text-align: center;
+}
+
+.areaMiPost{
+    width:80%;
+    height:100px;
+    resize:none;
+}
+
+.btn-post{
+        background-color: darkseagreen;
+    padding: 15;
+    width: 80%;
+    font-size: x-large;
 }

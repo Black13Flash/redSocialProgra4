@@ -94,8 +94,10 @@
   <ItemGroup>
     <Compile Include="conex\Conexion.cs" />
     <Compile Include="controladores\controladorAmigo.cs" />
+    <Compile Include="controladores\controladorPost.cs" />
     <Compile Include="controladores\controladorUsuario.cs" />
     <Compile Include="modelos\Amigo.cs" />
+    <Compile Include="modelos\Post.cs" />
     <Compile Include="modelos\Usuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="validadores\validaBuscarAmigos.aspx.cs">

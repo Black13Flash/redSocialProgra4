@@ -62,6 +62,11 @@
         </tr>
     </table>--%>
     
-
+    <%--<div id="post-principal">
+    <form action="index.aspx" method="POST">
+        <textarea id="miPost" name="miPost" placeholder="Agrega un comentario..."></textarea>
+        <input type="submit" class="btn-post" value="Actualizar" name="btnActualizar" />
+    </form>
+    </div>--%>
 </body>
 </html>

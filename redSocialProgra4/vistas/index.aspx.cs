@@ -16,6 +16,17 @@ namespace redSocialProgra4.vistas
         {
             if (Session["correo"] != null)
             {
+                // INI MI POST
+                if (Request["miPost"] != null)
+                {
+                    string comentario = Request["miPost"];
+
+                    //Response.Write("<h1>"+comentario+"</h1>");
+                    controladorPost miPost = new controladorPost();
+                    miPost.controlarPostMiMuro(comentario,Session["correo"].ToString());
+                }
+                // FIN MI POST
+
                 string correo = Session["correo"].ToString();
                 string nombre = Session["nombre"].ToString();
                 string apellido = Session["apellido"].ToString();
@@ -87,6 +98,32 @@ namespace redSocialProgra4.vistas
                 Response.Write("</div>");
                 //AREA CAMBIANTE
                 Response.Write("<div id='der'>");
+                // INI AREA TRABAJO
+                Response.Write("<div id='mi-post'>");
+                Response.Write("<div id='post-principal'>");
+                Response.Write("<form action='index.aspx' method='POST'>");
+                Response.Write("<textarea id='miPost' name='miPost' class='areaMiPost' placeholder='Agrega un comentario...'></textarea></br>");
+                Response.Write("<input type='submit' class='btn-post' value='Actualizar' name='btnActualizar' />");
+                Response.Write("</form>");
+                Response.Write("</div>");
+                controladorPost cp = new controladorPost();
+                List<Post> lista = cp.controladorMiMuro(Session["correo"].ToString());
+                if (lista[0].Texto.Equals("Su muro se encuentra vacio"))
+                {
+                    Response.Write(lista[0].Texto);
+                }
+                else
+                {
+                    Response.Write("<table border='1px'>");
+                    Response.Write("<tr><td>Creador</td><td>Comentario</td><td>Fecha</td></tr>");
+                    for (int i = 0; i < lista.Count; i++)
+                    {
+                        Response.Write("<tr><td><a href='perfilPersona.aspx?correo=" + lista[i].Creador + "'>" + lista[i].NombreCreador + "</a></td><td>" + lista[i].Texto + "</td><td>" + lista[i].Fecha + "</td></tr>");
+                    }
+                    Response.Write("</table>");
+                }
+                Response.Write("</div>");
+                // FIN AREA TRABAJO
                 Response.Write("</div>");
                 Response.Write("</div>");
                 Response.Write("</div>");
