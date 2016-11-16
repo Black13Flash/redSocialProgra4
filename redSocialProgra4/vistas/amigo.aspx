@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="buscarAmigos.aspx.cs" Inherits="redSocialProgra4.vistas.buscarAmigos" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="amigo.aspx.cs" Inherits="redSocialProgra4.vistas.amigo" %>
 
 <!DOCTYPE html>
 

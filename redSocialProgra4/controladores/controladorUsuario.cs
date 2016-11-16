@@ -139,6 +139,37 @@ namespace redSocialProgra4.controladores
             }
         }
 
+        public string buscaPersonas(string miCorreo, string nombre, string apellido) 
+        {
+            string unaLinea = "";
+
+            Usuario u = new Usuario();
+            List<Usuario> listaUsuario = u.buscaTodosNombreApellido(nombre, apellido);
+
+            foreach (Usuario uu in listaUsuario)
+            {
+                Usuario nn = uu.buscaUno(uu.Correo);
+
+                string amigos = "";
+
+                if (nn.sonAmigos(miCorreo,nn.Correo))
+                {
+                    amigos = "1";
+                }
+                else
+                {
+                    //enviarSolicitud
+                    amigos = "0";
+                }
+
+
+                unaLinea+=">"+nn.Correo+"+"+nn.Nombre+"+"+nn.Apellido+"+"+amigos;
+
+            }
+
+            return unaLinea;
+        }
+
 
     }
 

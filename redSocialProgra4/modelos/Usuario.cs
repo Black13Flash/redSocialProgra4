@@ -118,7 +118,7 @@ namespace redSocialProgra4.modelos
             return u2;
         }
 
-        //buscador de personas con nombre y apellido
+        //BUSCA PERSONA
         public List<Usuario> buscaTodosNombreApellido(string nombre, string apellido)
         {
             Conexion con = Conexion.Instance();
@@ -173,6 +173,32 @@ namespace redSocialProgra4.modelos
             }
             return lista;
         }
+
+        public bool sonAmigos(string correoSession, string correoPerfil)
+        {
+            Conexion con = Conexion.Instance();
+            bool bandera = false;
+            // string mensaje = "No Son Amigos";
+            try
+            {
+                con.abreConexion();
+                MySqlCommand comando = new MySqlCommand();
+                //comando.CommandText = "SELECT * FROM amigos WHERE (usuario1='" + correoSession + "' AND usuario2='" + correoPerfil + "') OR (usuario1='" + correoPerfil + "' AND usuario2='" + correoSession + "')";
+                comando.CommandText = "SELECT * from amigos where (usuario1='" + correoSession + "' or usuario2='" + correoSession + "') and (usuario1='" + correoPerfil + "' or usuario2='" + correoPerfil + "')";
+                comando.Connection = con.usaConexion();
+                MySqlDataReader reader = comando.ExecuteReader();
+                while (reader.Read())
+                {
+                    bandera = true;
+                }
+            }
+            finally
+            {
+                con.cierraConexion();
+            }
+            return bandera;
+        }
+
 
     }
 

@@ -40,7 +40,8 @@ namespace redSocialProgra4.vistas
                 Response.Write("</span>");
                 Response.Write("</div>");
                 Response.Write("<div id='barra-search'>");
-                Response.Write("<form id='form1' action='../validadores/validaBuscarAmigos.aspx' method='POST'>");
+                //Response.Write("<form id='form1' action='../validadores/validaBuscarAmigos.aspx' method='POST'>");
+                Response.Write("<form id='form1' action='../vistas/buscarAmigos.aspx' method='POST'>");
                 Response.Write("<div>");
                 Response.Write("<input type='text' name='txtNombre' Width='207px' placeholder='Busca amigos...'>");
                 Response.Write("<input type='submit' ID='Button1' Text='Buscar' value='Buscar' PostBackUrl='../validadores/validaBuscarAmigos.aspx' />");

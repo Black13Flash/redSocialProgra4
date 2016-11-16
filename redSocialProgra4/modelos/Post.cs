@@ -127,7 +127,7 @@ namespace redSocialProgra4.modelos
                 {
                     Post p = new Post();
                     p.idPost = Convert.ToInt32(reader[0].ToString());
-                    //p.fecha = reader[1].ToString();
+                    p.fecha = reader[1].ToString();
                     p.texto = reader[2].ToString();
                     p.creador = reader[3].ToString();
                     p.receptor = reader[4].ToString();
@@ -154,7 +154,7 @@ namespace redSocialProgra4.modelos
             {
                 con.abreConexion();
                 MySqlCommand comando = new MySqlCommand();
-                comando.CommandText = "INSERT INTO post (fecha, texto, creador, receptor, tipopost) VALUES('now()', '" + p.Texto + "','" + p.Creador + "','" + p.Receptor + "'," + p.TipoPost + ")";
+                comando.CommandText = "INSERT INTO post (fecha, texto, creador, receptor, tipopost) VALUES( now(), '" + p.Texto + "','" + p.Creador + "','" + p.Receptor + "'," + p.TipoPost + ")";
                 comando.Connection = con.usaConexion();
                 if (comando.ExecuteNonQuery() > 0)
                     return true;

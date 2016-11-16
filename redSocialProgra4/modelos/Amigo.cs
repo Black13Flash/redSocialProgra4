@@ -50,7 +50,8 @@ namespace redSocialProgra4.modelos
             {
                 con.abreConexion();
                 MySqlCommand comando = new MySqlCommand();
-                comando.CommandText = "SELECT * FROM amigos WHERE usuario1='"+user1+"' ";
+                //comando.CommandText = "SELECT * FROM amigos WHERE usuario1='"+user1+"' ";
+                comando.CommandText = "SELECT * from amigos WHERE usuario1='" + user1 + "' or usuario2='" + user1 + "'";
                 comando.Connection = con.usaConexion();
                 MySqlDataReader reader = comando.ExecuteReader();
 
