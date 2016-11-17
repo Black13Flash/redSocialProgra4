@@ -67,5 +67,19 @@ namespace redSocialProgra4.controladores
                 return null;
             }
         }
+
+        public bool hacerAmigo(string miCorreo, string correAmigo)
+        {
+            Amigo a = new Amigo();
+
+            if (a.crearAmistad(miCorreo,correAmigo))
+            {
+                return true;
+            }else
+            {
+                return false;
+            }
+        }
+
     }
 }

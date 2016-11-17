@@ -3,73 +3,73 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
+using redSocialProgra4.conex;
 using MySql.Data.MySqlClient;
-using redSocialProgra4.conex;   
 
 namespace redSocialProgra4.modelos
 {
-    public class Solicitud
+    public class Notificacion
     {
-        private int idSolicitud;
-        private string emisor;
-        private string receptor;
-        private int tipoEstado;
+        private int idNotificacion;
+        private int visto;
+        private int idPost;
+        private string usuario; //vendria siendo el correo
 
-        public int IdSolicitud
+        public int IdNotificacion
         {
             get
             {
-                return idSolicitud;
+                return idNotificacion;
             }
 
             set
             {
-                idSolicitud = value;
+                idNotificacion = value;
             }
         }
 
-        public string Emisor
+        public int Visto
         {
             get
             {
-                return emisor;
+                return visto;
             }
 
             set
             {
-                emisor = value;
+                visto = value;
             }
         }
 
-        public string Receptor
+        public int IdPost
         {
             get
             {
-                return receptor;
+                return idPost;
             }
 
             set
             {
-                receptor = value;
+                idPost = value;
             }
         }
 
-        public int TipoEstado
+        public string Usuario
         {
             get
             {
-                return tipoEstado;
+                return usuario;
             }
 
             set
             {
-                tipoEstado = value;
+                usuario = value;
             }
         }
 
-        public Solicitud() { }
+        public Notificacion() { }
 
-        public bool enviarSolicitud(Solicitud s)
+        public bool enviarNotificacion(int idpost, string correo)
         {
 
             Conexion con = Conexion.Instance();
@@ -77,7 +77,7 @@ namespace redSocialProgra4.modelos
             {
                 con.abreConexion();
                 MySqlCommand comando = new MySqlCommand();
-                comando.CommandText = "INSERT INTO solicitud (idsolicitud, emisor, receptor, tipoestado) VALUES('','" + s.Emisor + "', '" + s.Receptor + "','" + s.TipoEstado + "')";
+                comando.CommandText = "INSERT INTO notificaciones VALUES('','0', '" + idpost + "','" + correo + "')";
                 comando.Connection = con.usaConexion();
                 if (comando.ExecuteNonQuery() > 0)
                     return true;
@@ -94,18 +94,14 @@ namespace redSocialProgra4.modelos
             }
         }
 
-        public bool actualizarEstado(int idSolicitud, int estado)
+        public bool vistoUpdate(int idNotificacion)
         {
             Conexion con = Conexion.Instance();
             try
             {
                 con.abreConexion();
                 MySqlCommand comando = new MySqlCommand();
-                comando.CommandText = "UPDATE solicitud SET tipoestado='" + estado + "'";
-                // 1 -> NO VISTO
-                // 2 -> VISTO
-                // 3 -> ACEPTADA
-                // 4 -> RECHAZADA
+                comando.CommandText = "UPDATE notificaciones SET visto='1' where idnotificacion='" + idNotificacion + "'";
                 comando.Connection = con.usaConexion();
                 if (comando.ExecuteNonQuery() > 0)
                     return true;
@@ -124,30 +120,27 @@ namespace redSocialProgra4.modelos
 
         //trae todas las solicitudes vistas y no vistas
 
-        public List<Solicitud> notificaciones(string correo)
+        //este metodo trae todas las notificaciones sin orden
+        public List<Notificacion> notificaciones(string correo)
         {
 
             Conexion con = Conexion.Instance();
-            List<Solicitud> lista = new List<Solicitud>();
+            List<Notificacion> lista = new List<Notificacion>();
             try
             {
                 con.abreConexion();
                 MySqlCommand comando = new MySqlCommand();
-                // 1 -> NO VISTO
-                // 2 -> VISTO
-                // 3 -> ACEPTADA
-                // 4 -> RECHAZADA
-                comando.CommandText = "SELECT * FROM solicitud where receptor='" + correo + "' and (tipoestado=1 or tipoestado=2)";
+                comando.CommandText = "SELECT * FROM notificaciones where usuario='" + correo + "' and (visto=0 or visto=1)";//notificaciones hay que mostrar todas los no vistos y un par vistos??
                 comando.Connection = con.usaConexion();
                 MySqlDataReader reader = comando.ExecuteReader();
                 while (reader.Read())
                 {
-                    Solicitud s = new Solicitud();
-                    s.IdSolicitud = Convert.ToInt32(reader[0].ToString());
-                    s.Emisor = reader[1].ToString();
-                    s.Receptor = reader[2].ToString();
-                    s.TipoEstado = Convert.ToInt32(reader[3].ToString());
-                    lista.Add(s);
+                    Notificacion n = new Notificacion();
+                    n.IdNotificacion = Convert.ToInt32(reader[0].ToString());
+                    n.visto = Convert.ToInt32(reader[1].ToString());
+                    n.IdPost = Convert.ToInt32(reader[2].ToString());
+                    n.Usuario = reader[3].ToString();
+                    lista.Add(n);
                 }
             }
             finally
@@ -166,7 +159,7 @@ namespace redSocialProgra4.modelos
             {
                 con.abreConexion();
                 MySqlCommand comando = new MySqlCommand();
-                comando.CommandText = "select count(*) from solicitud where receptor='" + correo + "' and tipoestado=1";
+                comando.CommandText = "select count(*) from notificaciones where usuario='" + correo + "' and visto=0";
                 comando.Connection = con.usaConexion();
                 MySqlDataReader reader = comando.ExecuteReader();
                 while (reader.Read())
@@ -179,6 +172,46 @@ namespace redSocialProgra4.modelos
                 con.cierraConexion();
             }
             return cantidad;
+
+
+        }
+
+
+
+        public bool actualizarTodoVisto(List<Notificacion> lista, string correo)
+        {
+            int contador = 0;
+            Conexion con = Conexion.Instance();
+            for (int i = 0; i < lista.Count; i++)
+            {
+                try
+                {
+                    con.abreConexion();
+                    MySqlCommand comando = new MySqlCommand();
+                    comando.CommandText = "UPDATE notificaciones SET visto='1' where idnotificacion='" + lista[i].IdNotificacion + "'";//0 no visto 1 visto
+                    comando.Connection = con.usaConexion();
+                    if (comando.ExecuteNonQuery() > 0)
+                        contador++;
+                }
+                catch
+                {
+
+                }
+                finally
+                {
+                    con.cierraConexion();
+                }
+            }
+
+            if (contador == lista.Count)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+
         }
     }
 }

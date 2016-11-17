@@ -74,5 +74,30 @@ namespace redSocialProgra4.modelos
             }
             return lista;
         }
+
+        public bool crearAmistad(string miCorreo, string correoAmigo)
+        {
+            Conexion con = Conexion.Instance();
+            try
+            {
+                con.abreConexion();
+                MySqlCommand comando = new MySqlCommand();
+                comando.CommandText = "INSERT INTO amigos VALUES('"+miCorreo+"','"+correoAmigo+"')";
+                comando.Connection = con.usaConexion();
+                if (comando.ExecuteNonQuery() > 0)
+                    return true;
+                else
+                    return false;
+            }
+            catch
+            {
+                return false;
+            }
+            finally
+            {
+                con.cierraConexion();
+            }
+        }
+
     }
 }

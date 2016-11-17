@@ -127,7 +127,10 @@ namespace redSocialProgra4.modelos
                 {
                     Post p = new Post();
                     p.idPost = Convert.ToInt32(reader[0].ToString());
-                    p.fecha = reader[1].ToString();
+                    //if (reader[1] != null)
+                    //{
+                    //    p.fecha = reader[1].ToString();
+                    //}
                     p.texto = reader[2].ToString();
                     p.creador = reader[3].ToString();
                     p.receptor = reader[4].ToString();

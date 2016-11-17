@@ -16,6 +16,19 @@ namespace redSocialProgra4.vistas
         {
             if (Session["correo"] != null)
             {
+
+                // INI MI POST
+                if (Request["miPost"] != null && Request["txtCorreoAmigo"] != null)
+                {
+                    string comentario = Request["miPost"];
+
+                    //Response.Write("<h1>"+comentario+"</h1>");
+                    controladorPost miPost = new controladorPost();
+                    miPost.controlarPostMuroAmigo(comentario, Session["correo"].ToString(), Request["txtCorreoAmigo"].ToString());
+                    Response.Redirect("amigo.aspx?perfil="+ Request["txtCorreoAmigo"].ToString() + "");
+                }
+                // FIN MI POST
+
                 if (Request["enviarSolicitud"] != null || Request["revocarSolicitud"] != null)
                 {
                     string correo = Session["correo"].ToString();
@@ -44,7 +57,10 @@ namespace redSocialProgra4.vistas
                     Response.Write("</div>");
                     Response.Write("<div id='barra-notis'>");
                     Response.Write("<div id='barra-notis-amistad'>");
-                    Response.Write("<span id='iconoAmigos'></span>");
+                    //Response.Write("<span id='iconoAmigos'></span>");
+                    Solicitud notis = new Solicitud();
+                    int cantSolicitud = notis.cantidadSolicitud(correo);
+                    Response.Write("<a href='index.aspx?notificaciones=Amistad'><span id='iconoAmigos'><p>" + cantSolicitud + "</p></span></a>");
                     Response.Write("</div>");
                     Response.Write("<div id='barra-notis-notis'>");
                     Response.Write("<span id='iconoNotis'></span>");
@@ -223,40 +239,41 @@ namespace redSocialProgra4.vistas
                                     //Mostrar posts
 
                                     // INI MI POST
-                                    if (Request["miPost"] != null)
-                                    {
-                                        string comentario = Request["miPost"];
+                                    //if (Request["miPost"] != null)
+                                    //{
+                                    //    string comentario = Request["miPost"];
 
-                                        //Response.Write("<h1>"+comentario+"</h1>");
-                                        controladorPost miPost = new controladorPost();
-                                        miPost.controlarPostMiMuro(comentario, Session["correo"].ToString());
-                                    }
+                                    //    //Response.Write("<h1>"+comentario+"</h1>");
+                                    //    controladorPost miPost = new controladorPost();
+                                    //    miPost.controlarPostMuroAmigo(comentario, Session["correo"].ToString());
+                                    //}
                                     // FIN MI POST
 
                                     Response.Write("<div id='mi-post'>");
                                     Response.Write("<div id='post-principal'>");
                                     Response.Write("<form action='amigo.aspx' method='POST'>");
-                                    Response.Write("<textarea id='miPost' name='miPost' class='areaMiPost' placeholder='Agrega un comentario...'></textarea></br>");
+                                    Response.Write("<textarea id='miPost' name='miPost' class='areaMiPost' placeholder='Agrega un comentario al amigo...'></textarea></br>");
+                                    Response.Write("<input type='hidden' name='txtCorreoAmigo' Width='207px' value="+correoP+" >");
                                     Response.Write("<input type='submit' class='btn-post' value='Postear' name='btnActualizar' />");
                                     Response.Write("</form>");
                                     Response.Write("</div>");
 
-                                    //controladorPost cp = new controladorPost();
-                                    //List<Post> lista = cp.controlarPostMuroAmigo(Session["correo"].ToString());
-                                    //if (lista[0].Texto.Equals("Su muro se encuentra vacio"))
-                                    //{
-                                    //    Response.Write(lista[0].Texto);
-                                    //}
-                                    //else
-                                    //{
-                                    //    Response.Write("<table border='1px'>");
-                                    //    Response.Write("<tr><td>Creador</td><td>Comentario</td><td>Fecha</td></tr>");
-                                    //    for (int i = 0; i < lista.Count; i++)
-                                    //    {
-                                    //        Response.Write("<tr><td><a href='perfilPersona.aspx?correo=" + lista[i].Creador + "'>" + lista[i].NombreCreador + "</a></td><td>" + lista[i].Texto + "</td><td>" + lista[i].Fecha + "</td></tr>");
-                                    //    }
-                                    //    Response.Write("</table>");
-                                    //}
+                                    controladorPost cp = new controladorPost();
+                                    List<Post> lista = cp.controladorMuroAmigo(correoP);
+                                    if (lista[0].Texto.Equals("Su muro se encuentra vacio"))
+                                    {
+                                        Response.Write(lista[0].Texto);
+                                    }
+                                    else
+                                    {
+                                        Response.Write("<table border='1px'>");
+                                        Response.Write("<tr><td>Creador</td><td>Comentario</td><td>Fecha</td></tr>");
+                                        for (int i = 0; i < lista.Count; i++)
+                                        {
+                                            Response.Write("<tr><td><a href='amigo.aspx?perfil=" + lista[i].Creador + "'>" + lista[i].NombreCreador + "</a></td><td>" + lista[i].Texto + "</td><td>" + lista[i].Fecha + "</td></tr>");
+                                        }
+                                        Response.Write("</table>");
+                                    }
 
                                 }
                                 else

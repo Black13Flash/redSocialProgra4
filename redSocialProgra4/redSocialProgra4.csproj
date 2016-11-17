@@ -83,6 +83,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="validadores\validaBuscarAmigos.aspx" />
+    <Content Include="validadores\validaConfirmarAmistad.aspx" />
     <Content Include="validadores\validaLogin.aspx" />
     <Content Include="validadores\validaRegistrar.aspx" />
     <Content Include="vistas\amigo.aspx" />
@@ -98,6 +99,7 @@
     <Compile Include="controladores\controladorPost.cs" />
     <Compile Include="controladores\controladorUsuario.cs" />
     <Compile Include="modelos\Amigo.cs" />
+    <Compile Include="modelos\Notificacion.cs" />
     <Compile Include="modelos\Post.cs" />
     <Compile Include="modelos\Solicitud.cs" />
     <Compile Include="modelos\Usuario.cs" />
@@ -108,6 +110,13 @@
     </Compile>
     <Compile Include="validadores\validaBuscarAmigos.aspx.designer.cs">
       <DependentUpon>validaBuscarAmigos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="validadores\validaConfirmarAmistad.aspx.cs">
+      <DependentUpon>validaConfirmarAmistad.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="validadores\validaConfirmarAmistad.aspx.designer.cs">
+      <DependentUpon>validaConfirmarAmistad.aspx</DependentUpon>
     </Compile>
     <Compile Include="validadores\validaLogin.aspx.cs">
       <DependentUpon>validaLogin.aspx</DependentUpon>

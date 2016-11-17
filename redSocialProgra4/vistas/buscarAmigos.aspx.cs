@@ -49,7 +49,10 @@ namespace redSocialProgra4.vistas
                     Response.Write("</div>");
                     Response.Write("<div id='barra-notis'>");
                     Response.Write("<div id='barra-notis-amistad'>");
-                    Response.Write("<span id='iconoAmigos'></span>");
+                    //Response.Write("<span id='iconoAmigos'></span>");
+                    Solicitud notis = new Solicitud();
+                    int cantSolicitud = notis.cantidadSolicitud(correo);
+                    Response.Write("<a href='index.aspx?notificaciones=Amistad'><span id='iconoAmigos'><p>" + cantSolicitud + "</p></span></a>");
                     Response.Write("</div>");
                     Response.Write("<div id='barra-notis-notis'>");
                     Response.Write("<span id='iconoNotis'></span>");
