@@ -251,3 +251,11 @@
     width: 80%;
     font-size: x-large;
 }
+
+#iconoAmigos p{
+    text-align: right;
+    margin: auto;
+    padding-top: 10px;
+}
+
+    

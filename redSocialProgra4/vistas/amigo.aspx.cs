@@ -65,7 +65,7 @@ namespace redSocialProgra4.vistas
                     Response.Write("<div id='barra-notis-notis'>");
                     Response.Write("<span id='iconoNotis'></span>");
                     Response.Write("</div>");
-                    Response.Write("<p><a href='#'>Salir</a></p>");
+                    Response.Write("<p><a href='cerrarSesion.aspx'>Salir</a></p>");
                     Response.Write("</div>");
                     Response.Write("</div>");
                     Response.Write("</div>");
@@ -181,12 +181,15 @@ namespace redSocialProgra4.vistas
                                 Response.Write("</div>");
                                 Response.Write("<div id='barra-notis'>");
                                 Response.Write("<div id='barra-notis-amistad'>");
-                                Response.Write("<span id='iconoAmigos'></span>");
+                                Solicitud notis = new Solicitud();
+                                int cantSolicitud = notis.cantidadSolicitud(correo);
+                                Response.Write("<a href='index.aspx?notificaciones=Amistad'><span id='iconoAmigos'><p>" + cantSolicitud + "</p></span></a>");
+                                //Response.Write("<span id='iconoAmigos'></span>");
                                 Response.Write("</div>");
                                 Response.Write("<div id='barra-notis-notis'>");
                                 Response.Write("<span id='iconoNotis'></span>");
                                 Response.Write("</div>");
-                                Response.Write("<p><a href='#'>Salir</a></p>");
+                                Response.Write("<p><a href='cerrarSesion.aspx'>Salir</a></p>");
                                 Response.Write("</div>");
                                 Response.Write("</div>");
                                 Response.Write("</div>");

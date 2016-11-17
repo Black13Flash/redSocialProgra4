@@ -62,7 +62,7 @@ namespace redSocialProgra4.vistas
                 Response.Write("<div id='barra-notis-notis'>");
                 Response.Write("<span id='iconoNotis'></span>");
                 Response.Write("</div>");
-                Response.Write("<p><a href='#'>Salir</a></p>");
+                Response.Write("<p><a href='cerrarSesion.aspx'>Salir</a></p>");
                 Response.Write("</div>");
                 Response.Write("</div>");
                 Response.Write("</div>");
@@ -151,7 +151,7 @@ namespace redSocialProgra4.vistas
                         Response.Write("<tr><td>Creador</td><td>Comentario</td><td>Fecha</td></tr>");
                         for (int i = 0; i < lista.Count; i++)
                         {
-                            Response.Write("<tr><td><a href='perfilPersona.aspx?correo=" + lista[i].Creador + "'>" + lista[i].NombreCreador + "</a></td><td>" + lista[i].Texto + "</td><td>" + lista[i].Fecha + "</td></tr>");
+                            Response.Write("<tr><td><a href='amigo.aspx?perfil=" + lista[i].Creador + "'>" + lista[i].NombreCreador + "</a></td><td>" + lista[i].Texto + "</td><td>" + lista[i].Fecha + "</td></tr>");
                         }
                         Response.Write("</table>");
                     }

@@ -70,6 +70,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="css\portada.css" />
     <Content Include="css\principal.css" />
     <Content Include="img\Iconos.png" />
     <Content Include="img\user.png" />
@@ -88,6 +89,7 @@
     <Content Include="validadores\validaRegistrar.aspx" />
     <Content Include="vistas\amigo.aspx" />
     <Content Include="vistas\buscarAmigos.aspx" />
+    <Content Include="vistas\cerrarSesion.aspx" />
     <Content Include="vistas\index.aspx" />
     <Content Include="vistas\loginRegistrar.aspx" />
     <Content Include="vistas\perfilPersona.aspx" />
@@ -145,6 +147,13 @@
     </Compile>
     <Compile Include="vistas\buscarAmigos.aspx.designer.cs">
       <DependentUpon>buscarAmigos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="vistas\cerrarSesion.aspx.cs">
+      <DependentUpon>cerrarSesion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="vistas\cerrarSesion.aspx.designer.cs">
+      <DependentUpon>cerrarSesion.aspx</DependentUpon>
     </Compile>
     <Compile Include="vistas\index.aspx.cs">
       <DependentUpon>index.aspx</DependentUpon>

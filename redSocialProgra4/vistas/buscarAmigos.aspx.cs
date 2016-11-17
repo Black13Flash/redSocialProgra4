@@ -57,7 +57,7 @@ namespace redSocialProgra4.vistas
                     Response.Write("<div id='barra-notis-notis'>");
                     Response.Write("<span id='iconoNotis'></span>");
                     Response.Write("</div>");
-                    Response.Write("<p><a href='#'>Salir</a></p>");
+                    Response.Write("<p><a href='cerrarSesion.aspx'>Salir</a></p>");
                     Response.Write("</div>");
                     Response.Write("</div>");
                     Response.Write("</div>");
