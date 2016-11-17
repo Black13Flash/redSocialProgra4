@@ -32,13 +32,35 @@ namespace redSocialProgra4.controladores
             {
                 List<Usuario> amigos = new List<Usuario>();
 
-                foreach (Amigo amg in lista)
+                //foreach (Amigo amg in lista)
+                //{
+                //    Usuario u2 = new Usuario();
+                //    u2 = u2.buscaUno(amg.Usuario2);
+                //    amigos.Add(u2);
+                //}
+                //return amigos;
+
+                foreach (Amigo aaa in lista)
                 {
-                    Usuario u2 = new Usuario();
-                    u2 = u2.buscaUno(amg.Usuario2);
-                    amigos.Add(u2);
+                    if (aaa.Usuario1.Equals(usuario1))
+                    {
+                        Usuario u2 = new Usuario();
+                        u2 = u2.buscaUno(aaa.Usuario2);
+
+                        amigos.Add(u2);
+                    }
+
+                    if (aaa.Usuario2.Equals(usuario1))
+                    {
+                        Usuario u2 = new Usuario();
+                        u2 = u2.buscaUno(aaa.Usuario1);
+
+                        amigos.Add(u2);
+                    }
                 }
+
                 return amigos;
+
             }
             else
             {

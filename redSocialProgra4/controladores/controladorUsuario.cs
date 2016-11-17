@@ -170,6 +170,19 @@ namespace redSocialProgra4.controladores
             return unaLinea;
         }
 
+        public bool sonAmigos(string correoSesion, string correoPerfil)
+        {
+            Usuario u = new Usuario();
+            if (u.sonAmigos(correoSesion, correoPerfil))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
 
     }
 

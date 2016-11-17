@@ -23,7 +23,7 @@ namespace redSocialProgra4.vistas
 
                     //Response.Write("<h1>"+comentario+"</h1>");
                     controladorPost miPost = new controladorPost();
-                    miPost.controlarPostMiMuro(comentario,Session["correo"].ToString());
+                    miPost.controlarPostMuroAmigo(comentario,Session["correo"].ToString());
                 }
                 // FIN MI POST
 
@@ -50,7 +50,7 @@ namespace redSocialProgra4.vistas
                 Response.Write("</div>");
                 Response.Write("<div id='barra-perso'>");
                 Response.Write("<!-- NOMBRE DEL PERSONAJE -->");
-                Response.Write("<p><a href='#'>"+nombre+" "+apellido+"</a></p>");
+                Response.Write("<p><a href='index.aspx'>"+nombre+" "+apellido+"</a></p>");
                 Response.Write("</div>");
                 Response.Write("<div id='barra-notis'>");
                 Response.Write("<div id='barra-notis-amistad'>");
@@ -90,7 +90,7 @@ namespace redSocialProgra4.vistas
                         //Response.Write(a.Usuario2);
                         Response.Write("<tr>");
                         Response.Write("<td class='td-img'></td>");
-                        Response.Write("<td class='td-nom'><a href='#'>"+a.Nombre+" "+a.Apellido+"</a></td>");
+                        Response.Write("<td class='td-nom'><a href='amigo.aspx?perfil="+a.Correo+"'>"+a.Nombre+" "+a.Apellido+"</a></td>");
                         Response.Write("</tr>");
                     }
 

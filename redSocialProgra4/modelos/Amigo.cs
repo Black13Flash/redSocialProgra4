@@ -58,6 +58,7 @@ namespace redSocialProgra4.modelos
                 while (reader.Read())
                 {
                     Amigo a = new Amigo();
+                    a.usuario1 = reader[0].ToString();
                     a.Usuario2 = reader[1].ToString();
 
                     lista.Add(a);

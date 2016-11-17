@@ -46,5 +46,23 @@ namespace redSocialProgra4.controladores
                 return false;
             }
         }
+
+        public bool controlarPostMuroAmigo(string miComentario, string correoAmigo)
+        {
+            Post p = new Post();
+            p.Texto = miComentario;
+            p.Receptor = correoAmigo;
+            p.Creador = correoAmigo;
+            p.TipoPost = 2;
+
+            if (p.posteo(p))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
     }
 }
