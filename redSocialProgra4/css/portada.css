@@ -1,2 +1,440 @@
-﻿body {
+﻿.header
+{
+    background-color:#2a712a;
+    width: 100%;
+    height:82px;
+    
+}
+
+.header2
+{
+    margin:13px;
+    width: 50%;
+    height:60px;
+    float: right;
+    /*background-color:red;*/
+
+    font-family:'Lucida Grande', 'Tahoma', 'Verdana', 'Arial', 'sans-serif';
+    font-size:12px;
+    font-stretch:extra-condensed;
+    font-weight:normal;
+    color:white;
+
+    
+    
+}
+
+
+.body
+{
+    height: 580px;
+    width:100%;
+    font-size:20px;
+    font-family: 'Lucida Grande', 'Tahoma', 'Verdana', 'Arial', 'sans-serif';
+    font-weight:bold;
+    
+}
+
+
+
+.body1
+{
+    width:50%;
+    float:left;
+    text-align:center;
+    margin-top:50px;
+    height:90%;
+    
+    
+
+}
+
+.body2
+{
+    margin-top:80px;
+    float:left;
+    width:50%;
+    height:90%;
+
+}
+
+#TB1,#TB2,#TB3,#TB4,#TB5
+{
+    border-radius:5px; 
+    margin-right:3px; 
+    margin-bottom:3px;
+    border-style:solid;
+    border-color:#b4edb4;  
+    font-size:25px;
+    padding-left:9px;
+    font-family: 'Helvetica', 'Arial', 'sans-serif';
+    height: 40px;
+
+}
+
+#TB6,#TB7
+{
+    margin-right:7px;
+    border-color:black;
+     border-width: 1px;
+     height: 20px;
+    
+}
+
+.titulo
+{
+    font-size:24px;
+    margin-bottom:0px;
+
+}
+
+.footer
+
+{
+    background-color:#2a712a;
+    height:100%;
+    width:100%;
+    float:left;
+    font-size:13px;
+    font-family: 'Lucida Sans';
+    
+    text-align:center;
+    color:white;
+    margin-top:5px;
+   
+}
+
+.BT2{
+    
+    background-color: #2a712a;
+    border-color: #194419;
+    border-radius: 2px;
+    cursor: pointer;
+    display: inline-block;
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 12px;
+    -webkit-font-smoothing: antialiased;
+    font-weight: bold;
+    line-height: 17px;
+    
+    text-align: center;
+    text-decoration: none;
+    text-shadow: none;
+    vertical-align: top;
+    white-space: nowrap;
+    color:white;
+
+}
+
+/*COMIENZO BOTON FACE*/
+
+._58mf ._6o {
+    font-size: 19px;
+}
+
+._3ma {
+    font-family: 'Freight Sans Bold', Helvetica, Arial, sans-serif !important;
+    font-weight: bold !important;
+    letter-spacing: normal;
+    text-rendering: optimizelegibility;
+}
+
+.mvm {
+    margin-top:2px;
+    margin-bottom: 10px;
+    margin-right:3px;
+}
+
+._58mi {
+    min-width: 180px;
+    padding: 7px 20px;
+    text-align: center;
+}
+
+._6v {
+    font-weight: bold;
+}
+
+._6o {
+    font-size: 22px;
+    line-height: 30%;
+}
+
+._6wl {
+    background: linear-gradient(#67ae55, #578843);
+    background-color: #69a74e;
+    box-shadow: inset 0 1px 1px #a4e388;
+    border-color: #3b6e22 #3b6e22 #2c5115;
+}
+
+._6wk {
+    padding: 20px 30px;
+}
+
+._6j {
+    border: 1px solid;
+    border-radius: 5px;
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;
+    letter-spacing: 1px;
+    position: relative;
+    text-shadow: 0 1px 2px rgba(0,0,0,.5);
+}
+
+/*FIN BOTON FACE*/
+
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color:#e0f1e0;
+}
+
+#barra{
+    height:50px;
+    background-color: #2a712a;
+
+    position: fixed;
+    width: 100%;
+}
+
+#sesenta{
+    width:70%;
+    margin-left:15%;
+}
+
+#barra-logo{
+    width:10%;
+    height:100%;
+    /*background-color:red;*/
+    float:left;
+    text-align:center;
+}
+
+#barra-logo span{
+    width:24px;
+    height:24px;
+
+    background-image:url(../img/Iconos.png);
+    background-repeat:no-repeat;
+    background-position:0 -163px;
+    display:block;
+    outline:none;
+    overflow:hidden;
+    
+    margin: 13px auto;
+}
+
+#barra-search{
+    width:45%;
+    height:100%;
+    /*background-color:green;*/
+
+    float:left;
+}
+
+#barra-search form{
+    /*margin: 13px auto;*/
+    margin:13px auto;
+}
+
+#barra-search form Button1{
+    /*margin: 13px auto;*/
+    margin-left:100px;
+}
+
+#barra-perso{
+    width:15%;
+    height:100%;
+    /*background-color:greenyellow;*/
+
+    float:left;
+    
+    text-align: right;
+}
+
+#barra-perso p{
+    margin-top:20px;
+    padding-right:25px;
+}
+
+#barra-notis{
+    width:30%;
+    height:100%;
+    /*background-color:lightgreen;*/
+
+    float:left;
+    /*text-align:center;*/
+}
+
+#barra-notis p{
+    margin-top:20px;
+}
+
+#barra-notis-amistad{
+    height:24px;
+    width:44px;
+
+    float:left;
+    margin:13px auto;
+    margin-left:10px;
+}
+
+#barra-notis-notis{
+    height:24px;
+    width:44px;
+
+    float:left;
+    margin:13px auto;
+    margin-left:10px;
+}
+
+#iconoAmigos{
+    width:24px;
+    height:24px;
+
+    background-image:url(../img/Iconos.png);
+    background-repeat:no-repeat;
+    background-position:0 -188px;
+    display:block;
+    outline:none;
+    overflow:hidden;
+    
+    float:left;
+}
+
+#iconoNotis{
+    width:24px;
+    height:24px;
+
+    background-image:url(../img/Iconos.png);
+    background-repeat:no-repeat;
+    background-position:0 -238px;
+    display:block;
+    outline:none;
+    overflow:hidden;
+    
+    float:left;
+}
+
+/*OTRA SHIT*/
+#caja{
+    /*margin-top:10px;*/
+    background-color:#e0f1e0;
+}
+
+#contenido{
+    width:70%;
+    background-color:white;
+    margin-left:15%;
+}
+
+#cont-top{
+    height:100px;
+    background-color:darkseagreen;
+    padding-top: 50px;
+}
+
+#cont-bottom{
+    background-color:#e0f1e0;
+    margin-top:20px;
+}
+
+#izq{
+    width:30%;
+    float:left;
+
+    background-color:#e0f1e0;
+    /*padding:10px;*/
+}
+
+#der{
+    width:70%;
+    float:left;
+
+    background-color:#e0f1e0;
+}
+
+#tablaAmigos{
+    width:90%;
+    /*background-color:black;*/
+    text-align:center;
+    margin:0 auto;
+    background-color: #ffffff;
+    border: 1px solid #2a712a;
+    padding: 10px;
+}
+
+
+
+.td-img{
+    height: 50px;
+    width: 50px;
+    background-color: white;
+    background-image:url(../img/user.png);
+    background-size:contain;
+    border-radius:25px;
+}
+
+.td-nom{
+    border-bottom: 1px solid darkseagreen;
+}
+
+
+#cont-top-left{
+    width:20%;
+    height:100%;
+    float:left;
+}
+
+#cont-top-rigth{
+    width:80%;
+    height:100%;
+    float:left;
+}
+
+.fotoPerfil{
+    width: 80px;
+    text-align: center;
+    padding-top: 10px;
+    padding-left: 25%;
+}
+
+#cont-top-rigth p{
+    color:white;
+    text-shadow: 1px 1px 1px black;
+    font-size:42px;
+}
+
+.tit-amigo{
+    text-align: center;
+    background-color: #8fbc8f;
+    padding: 10px;
+    border-bottom: 2px solid #2a712a;
+}
+
+#mi-post{
+    width:100%;
+    height:200px;
+    background-color:red;
+}
+
+#post-principal{
+    background-color:#e0f1e0;
+    padding: 30px;
+    text-align: center;
+}
+
+.areaMiPost{
+    width:80%;
+    height:100px;
+    resize:none;
+}
+
+.btn-post{
+        background-color: darkseagreen;
+    padding: 15px;
+    width: 80%;
+    font-size: x-large;
 }

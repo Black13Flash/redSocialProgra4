@@ -88,7 +88,7 @@ namespace redSocialProgra4.vistas
                             //Response.Write(a.Usuario2);
                             Response.Write("<tr>");
                             Response.Write("<td class='td-img'></td>");
-                            Response.Write("<td class='td-nom'><a href='amigo.aspx="+a.Correo+"'>" + a.Nombre + " " + a.Apellido + "</a></td>");
+                            Response.Write("<td class='td-nom'><a href='amigo.aspx?perfil="+a.Correo+"'>" + a.Nombre + " " + a.Apellido + "</a></td>");
                             Response.Write("</tr>");
                         }
 

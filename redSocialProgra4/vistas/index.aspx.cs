@@ -26,7 +26,7 @@ namespace redSocialProgra4.vistas
                     miPost.controlarPostMiMuro(comentario,Session["correo"].ToString());
                 }
                 // FIN MI POST
-
+                
                 string correo = Session["correo"].ToString();
                 string nombre = Session["nombre"].ToString();
                 string apellido = Session["apellido"].ToString();
@@ -57,10 +57,13 @@ namespace redSocialProgra4.vistas
                 //Response.Write("<span id='iconoAmigos'></span>");
                 Solicitud notis = new Solicitud();
                 int cantSolicitud = notis.cantidadSolicitud(correo);
-                Response.Write("<a href='index.aspx?notificaciones=Amistad'><span id='iconoAmigos'><p>"+cantSolicitud+"</p></span></a>");
+                Response.Write("<a href='index.aspx?notificaciones=Amistad'><span id='iconoAmigos'><p id='p-soli'>"+cantSolicitud+"</p></span></a>");
                 Response.Write("</div>");
                 Response.Write("<div id='barra-notis-notis'>");
-                Response.Write("<span id='iconoNotis'></span>");
+                //NOTIS
+                Notificacion notis2 = new Notificacion();
+                int cantNotis = notis2.cantidadSolicitud(correo);
+                Response.Write("<a href='index.aspx'><span id='iconoNotis'><p id='p-noti'>"+cantNotis+"</p></span></a>");
                 Response.Write("</div>");
                 Response.Write("<p><a href='cerrarSesion.aspx'>Salir</a></p>");
                 Response.Write("</div>");
@@ -114,11 +117,22 @@ namespace redSocialProgra4.vistas
 
                         if (listaSolicitudes.Count > 0)
                         {
+                            List<Solicitud> listaParaVisto = new List<Solicitud>();
+
                             Response.Write("<table>");
 
                             foreach (Solicitud ss in listaSolicitudes)
                             {
                                 Response.Write("<tr><td>" + ss.IdSolicitud + "</td><td>" + ss.Emisor + "</td><td>" + ss.Receptor + "</td><td>" + ss.TipoEstado + "</td><td><a href='../validadores/validaConfirmarAmistad.aspx?Aceptar=1&Amigo=" + ss.Emisor + "&id=" + ss.IdSolicitud + "'>Aceptar Amistad</a></td><td><a href='../validadores/validaConfirmarAmistad.aspx?Aceptar=0&Amigo=" + ss.Emisor + "&id=" + ss.IdSolicitud + "'>Rechazar Amistad</a></td></tr>");
+
+                                Solicitud sss = new Solicitud();
+                                sss.IdSolicitud = ss.IdSolicitud;
+                                listaParaVisto.Add(sss);
+                            }
+
+                            if (s.actualizarTodoVisto(listaParaVisto,correo))
+                            {
+
                             }
 
                             Response.Write("</table>");
@@ -141,6 +155,9 @@ namespace redSocialProgra4.vistas
                     Response.Write("</div>");
                     controladorPost cp = new controladorPost();
                     List<Post> lista = cp.controladorMiMuro(Session["correo"].ToString());
+
+                    List<Notificacion> listaNotiParaVisto = new List<Notificacion>();
+
                     if (lista[0].Texto.Equals("Su muro se encuentra vacio"))
                     {
                         Response.Write(lista[0].Texto);
@@ -152,7 +169,17 @@ namespace redSocialProgra4.vistas
                         for (int i = 0; i < lista.Count; i++)
                         {
                             Response.Write("<tr><td><a href='amigo.aspx?perfil=" + lista[i].Creador + "'>" + lista[i].NombreCreador + "</a></td><td>" + lista[i].Texto + "</td><td>" + lista[i].Fecha + "</td></tr>");
+                            Notificacion nose = new Notificacion();
+                            nose.IdPost = lista[i].IdPost;
+                            listaNotiParaVisto.Add(nose);
                         }
+
+                        Notificacion asd = new Notificacion();
+                        if (asd.actualizarTodoVisto(listaNotiParaVisto,correo))
+                        {
+
+                        }
+
                         Response.Write("</table>");
                     }
                     Response.Write("</div>");

@@ -7,6 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title></title>
     <link rel="stylesheet" href="../css/principal.css" />
+    <script type="text/javascript" src="../js/eventos.js"></script>
 </head>
 <body>
     
@@ -68,5 +69,7 @@
         <input type="submit" class="btn-post" value="Actualizar" name="btnActualizar" />
     </form>
     </div>--%>
+
+    <script type="text/javascript" src="../js/jquery-3.1.1.min.js"></script>
 </body>
 </html>

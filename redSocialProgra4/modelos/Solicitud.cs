@@ -101,7 +101,7 @@ namespace redSocialProgra4.modelos
             {
                 con.abreConexion();
                 MySqlCommand comando = new MySqlCommand();
-                comando.CommandText = "UPDATE solicitud SET tipoestado='" + estado + "'";
+                comando.CommandText = "UPDATE solicitud SET tipoestado='" + estado + "' WHERE idsolicitud='"+idSolicitud+"' ";
                 // 1 -> NO VISTO
                 // 2 -> VISTO
                 // 3 -> ACEPTADA
@@ -179,6 +179,43 @@ namespace redSocialProgra4.modelos
                 con.cierraConexion();
             }
             return cantidad;
+        }
+
+        //actualiza lista de solicitudes de no visto a visto
+        public bool actualizarTodoVisto(List<Solicitud> lista, string correo)
+        {
+            int contador = 0;
+            Conexion con = Conexion.Instance();
+            for (int i = 0; i < lista.Count; i++)
+            {
+                try
+                {
+                    con.abreConexion();
+                    MySqlCommand comando = new MySqlCommand();
+                    comando.CommandText = "UPDATE solicitud SET tipoestado='2' WHERE idsolicitud='" + lista[i].IdSolicitud + "'"; //1=no visto, 2=visto, 3=aceptado, 4=rechazado
+                    comando.Connection = con.usaConexion();
+                    if (comando.ExecuteNonQuery() > 0)
+                        contador++;
+                }
+                catch
+                {
+
+                }
+                finally
+                {
+                    con.cierraConexion();
+                }
+            }
+
+            if (contador == lista.Count)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+
         }
     }
 }

@@ -74,6 +74,9 @@
     <Content Include="css\principal.css" />
     <Content Include="img\Iconos.png" />
     <Content Include="img\user.png" />
+    <Content Include="img\verdefb.png" />
+    <Content Include="js\eventos.js" />
+    <Content Include="js\jquery-3.1.1.min.js" />
     <Content Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -98,6 +101,7 @@
   <ItemGroup>
     <Compile Include="conex\Conexion.cs" />
     <Compile Include="controladores\controladorAmigo.cs" />
+    <Compile Include="controladores\controladorNotificacion.cs" />
     <Compile Include="controladores\controladorPost.cs" />
     <Compile Include="controladores\controladorUsuario.cs" />
     <Compile Include="modelos\Amigo.cs" />
